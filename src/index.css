@@ -29,3 +29,10 @@ tr>.btn-primary {
   justify-content: space-evenly;
   margin-top: 1rem;
 }
+
+@media (max-width: 770px) {
+  .my-table {
+    position: relative !important;
+    width: 100% !important;
+  }
+}
