@@ -1,11 +1,31 @@
-.btn-form{
+.btn-form {
   margin-top: 1rem;
 }
 
-.btn-danger{
+.btn-danger,
+.btn-primary {
   color: black !important;
 }
 
-.btn-danger:hover{
+.btn-danger:hover,
+.btn-primary:hover {
   color: white !important;
+}
+
+tr>.btn-danger,
+tr>.btn-primary {
+  margin-left: 1rem !important;
+}
+
+.my-table {
+  position: absolute !important;
+  top: 50% !important;
+  width: 80% !important;
+  z-index: -1;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 1rem;
 }

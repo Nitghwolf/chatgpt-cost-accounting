@@ -6,6 +6,7 @@ import EditTransactionForm from './EditTransactionForm';
 const IncomeTable = () => {
     const { deleteTransaction } = useStore();
     const [editing, setEditing] = useState(false);
+    const [transaction, setTransaction] = useState();
 
     const transactions = useStore((state) =>
         state.transactions.filter((transaction) => transaction.type === 'income')
@@ -20,8 +21,9 @@ const IncomeTable = () => {
         deleteTransaction(id);
     };
 
-    const handleEdit = () => {
+    const handleEdit = (tr) => {
         setEditing(true);
+        setTransaction(tr);
     };
 
     return (
@@ -43,19 +45,17 @@ const IncomeTable = () => {
                             <button onClick={() => handleDelete(transaction.id)} className="btn btn-danger">
                                 Delete
                             </button>
-                            <button className="btn btn-primary" onClick={handleEdit}>
+                            <button className="btn btn-primary" onClick={() => handleEdit(transaction)}>
                                 Edit
                             </button>
-                            {editing && (
-                                <td>
-                                    <EditTransactionForm
-                                        transaction={transaction}
-                                        setEditing={setEditing}
-                                    />
-                                </td>
-                            )}
                         </tr>
                     ))}
+                    {editing && (
+                        <EditTransactionForm
+                            transaction={transaction}
+                            setEditing={setEditing}
+                        />
+                    )}
                 </tbody>
                 <tfoot>
                     <tr>

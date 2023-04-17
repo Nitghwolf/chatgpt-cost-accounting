@@ -20,7 +20,7 @@ const App = () => {
           <ExpenseTable />
         </div>
       </div>
-      <div className="row mt-5">
+      <div className="row mt-5 my-table">
         <div className="col-md-6">
           <h2>Общая информация</h2>
           <BalanceTable />
