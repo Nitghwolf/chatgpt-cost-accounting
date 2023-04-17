@@ -13,6 +13,15 @@ const useStore = create((set) => ({
             return { transactions: newTransactions, balance: newBalance };
         });
     },
+    editTransaction: (transaction) =>
+        set((state) => ({ transactions: [...state.transactions.map(tr => {
+            if(tr.id === transaction.id){
+                return transaction;
+            }
+            else{
+                return tr;
+            }
+        })] })),
 }));
 
 export default useStore;
